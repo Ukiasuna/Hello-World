@@ -33,42 +33,4 @@ $( document ).ready(function() {
            
 		});
 
-	function DownLoadData(){
-		$.ajax({  
-		    type:'post',  
-		    url:"assets/jsonData.json",
-		    contentType:'application/json;charset=utf-8', 
-		    data:"", 
-		    success:function(data){
-		    	console.warn(data)
-		    	for(var i=0; i<data.length; i++){
-		    		CreateDataHtml(data[i]);	
-		    	}
-		    },
-		    error:function(e){
-		    	console.warn(e)
-		    }
-		});  
-	}
-
-	function CreateDataHtml(data){
-		if(data.type == "logo"){
-			$(".logo h4").append(data.logo);
-			$(".home-description").append(data.home);
-		} 
-		if(data.type == "about"){
-			$("#about_right .subtitle").append(data.about);
-			$("#about_right .info").append(data.info);
-		}
-		if(data.type == "work"){
-			$("#work_right .subtitle").append(data.work);
-			$("#work_right .info").append(data.info);
-		}
-		if(data.type == "contact"){
-			$("#contact_right .subtitle").append(data.contact);
-		} 
-	}
 	
-	function Success(){
-		console.warn($(".form_edit").serialize())
-	}
